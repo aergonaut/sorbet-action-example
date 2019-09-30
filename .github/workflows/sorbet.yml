@@ -1,0 +1,9 @@
+on: [pull_request]
+jobs:
+  sorbet:
+    runs-on: ubuntu-latest
+    name: Sorbet
+    steps:
+      - name: Typecheck
+        id: srb-tc
+        uses: aergonaut/sorbet-action@master
