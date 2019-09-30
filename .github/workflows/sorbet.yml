@@ -1,9 +1,13 @@
+name: Sorbet
 on: [pull_request]
 jobs:
   sorbet:
     runs-on: ubuntu-latest
     name: Sorbet
     steps:
+      - uses: actions/checkout@master
       - name: Typecheck
         id: srb-tc
         uses: aergonaut/sorbet-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
